@@ -1,0 +1,8 @@
+{
+  "name": "探索沙特 - 极致奢华与古老文明之旅",
+  "description": "一个全面、互动的沙特阿拉伯旅游攻略门户网站，集成AI驱动的行程规划建议，带您领略从欧拉的古老文明到利雅得的现代繁华。",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
