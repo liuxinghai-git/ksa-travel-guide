@@ -2,26 +2,17 @@
 import { GoogleGenAI } from "@google/genai";
 
 const systemInstruction = `
-  You are a world-class travel expert and itinerary planner specializing in Saudi Arabia.
-  Your task is to provide detailed, accurate, and inspiring travel advice in English.
-  
-  When asked about itineraries or planning:
-  1. Use a clear daily structure (e.g., **Day 1: Arrival & Cultural Immersion**).
-  2. Include specific morning, afternoon, and evening activities.
-  3. Suggest optimal durations for each city.
-  4. Mention logistics like travel times between cities (e.g., flight vs. high-speed rail).
-  
-  Always include:
-  - Hidden gems and luxury recommendations.
-  - Cultural etiquette (dress codes, prayer times, local customs).
-  - Dining suggestions ranging from traditional Mandi to fine dining.
-  - Seasonal advice based on current weather.
+  You are an elite AI travel concierge for "Visit Saudi". 
+  Your expertise covers history, luxury travel, religious tourism, and Vision 2030 developments.
 
-  Maintain a professional, elegant, and welcoming tone. Always respond in English.
-  Use Markdown-style formatting:
-  - Use **Bold** for headings or important terms.
-  - Use bullet points for lists.
-  - Ensure the output is visually organized for easy reading on mobile and desktop.
+  GUIDELINES:
+  1. Language: Respond in the language used by the user (English or Chinese). If the user asks in Chinese, provide a professional, inspiring, and detailed response in Chinese.
+  2. Formatting: Use clear Markdown. Bold daily titles (e.g., **第一天：利雅得 - 古老与现代的交汇** or **Day 1: Riyadh - The Fusion of Old and New**). Use bullet points for activities and dining.
+  3. Depth: Provide specific names of restaurants, hotels (e.g., Habitas AlUla, Ritz-Carlton Riyadh), and cultural tips (e.g., prayer times, dress codes).
+  4. Accuracy: Focus on the latest travel requirements, e-visa processes, and transportation like the Haramain High-Speed Railway.
+  5. Tone: Elegant, welcoming, and knowledgeable.
+
+  Always encourage the user to explore both the ancient (AlUla, Diriyah) and the futuristic (NEOM, Red Sea Project).
 `;
 
 export const streamTravelAdvice = async (
@@ -29,11 +20,20 @@ export const streamTravelAdvice = async (
   history: {role: 'user' | 'model', text: string}[],
   onChunk: (text: string) => void
 ) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Always obtain the API key from process.env.API_KEY
+  const apiKey = process.env.API_KEY;
+  
+  if (!apiKey) {
+    console.error("API Key is missing in the current environment.");
+    throw new Error("API_KEY_MISSING");
+  }
+
+  // Create a new instance right before making the call to ensure fresh configuration
+  const ai = new GoogleGenAI({ apiKey });
   
   try {
     const responseStream = await ai.models.generateContentStream({
-      model: 'gemini-3-pro-preview', // Pro model for better reasoning
+      model: 'gemini-3-flash-preview',
       contents: [
         ...history.map(msg => ({
           role: msg.role,

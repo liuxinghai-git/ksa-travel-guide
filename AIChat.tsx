@@ -37,8 +37,12 @@ const AIChat: React.FC = () => {
       );
       setMessages(prev => [...prev, { role: 'model', text: finalResponse }]);
       setStreamingText('');
-    } catch (error) {
-      setMessages(prev => [...prev, { role: 'model', text: "I encountered an error connecting to our concierge service. Please check your connection and try again." }]);
+    } catch (error: any) {
+      let errorMsg = "I encountered an error connecting to our concierge service. Please try again.";
+      if (error?.message === "API_KEY_MISSING") {
+        errorMsg = "AI Service Configuration Error: The API key is not yet available. Please ensure your project is properly configured.";
+      }
+      setMessages(prev => [...prev, { role: 'model', text: errorMsg }]);
     } finally {
       setIsLoading(false);
     }
@@ -51,16 +55,15 @@ const AIChat: React.FC = () => {
   };
 
   const samplePrompts = [
-    "Plan a 5-day itinerary for AlUla",
-    "Best diving spots in the Red Sea?",
-    "Etiquette guide for visitors",
-    "Traditional Saudi dishes to try",
-    "High-speed rail vs flying"
+    { en: "Plan a 5-day itinerary for AlUla", zh: "为我策划一个5天的埃尔奥拉行程" },
+    { en: "Best diving spots in the Red Sea?", zh: "红海有哪些顶级的潜水点？" },
+    { en: "Etiquette guide for visitors", zh: "去沙特旅游有哪些文化礼仪？" },
+    { en: "Traditional Saudi dishes to try", zh: "有哪些必尝试的沙特传统美食？" },
+    { en: "Family-friendly activities in Riyadh", zh: "利雅得有哪些适合亲子游的活动？" }
   ];
 
   const formatText = (text: string) => {
     return text.split('\n').map((line, i) => {
-      // Basic markdown parsing for bolding
       const formattedLine = line.split(/(\*\*.*?\*\*)/g).map((part, j) => {
         if (part.startsWith('**') && part.endsWith('**')) {
           return <strong key={j} className="text-amber-600 font-bold">{part.slice(2, -2)}</strong>;
@@ -96,29 +99,30 @@ const AIChat: React.FC = () => {
                 </button>
               </div>
               
-              <h2 className="text-3xl font-serif mb-4 leading-tight">Saudi Concierge</h2>
+              <h2 className="text-3xl font-serif mb-4 leading-tight">Saudi AI Concierge</h2>
               <p className="text-stone-400 font-light text-sm mb-8 leading-relaxed">
-                Your luxury gateway to the Kingdom. Ask about itineraries, culture, or hidden gems.
+                Your gateway to the Kingdom. Ask about itineraries, culture, or hidden gems.
               </p>
               
               <div className="space-y-3">
-                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-bold">Quick Start</span>
+                <span className="text-[10px] text-stone-500 uppercase tracking-widest font-bold">Suggestions / 建议</span>
                 {samplePrompts.map((prompt, i) => (
                   <button 
                     key={i}
-                    onClick={() => handleSend(prompt)} 
+                    onClick={() => handleSend(prompt.zh)} 
                     disabled={isLoading}
                     className="w-full text-left text-[11px] bg-white/5 hover:bg-amber-500/20 hover:border-amber-500/50 p-3 rounded-xl border border-white/10 transition-all duration-300 disabled:opacity-50"
                   >
-                    "{prompt}"
+                    <span className="block text-white opacity-90">{prompt.en}</span>
+                    <span className="block text-stone-400 text-[10px] mt-1 italic">{prompt.zh}</span>
                   </button>
                 ))}
               </div>
             </div>
             
-            <div className="flex items-center gap-3 pt-6">
-              <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              <span className="text-[10px] text-stone-500 uppercase tracking-widest">System Active: Gemini 3 Pro</span>
+            <div className="flex items-center gap-3 pt-6 border-t border-white/5 mt-4">
+              <div className={`w-2 h-2 rounded-full ${isLoading ? 'bg-amber-500 animate-pulse' : 'bg-green-500'}`}></div>
+              <span className="text-[10px] text-stone-500 uppercase tracking-widest">System Active</span>
             </div>
           </div>
 
@@ -132,8 +136,8 @@ const AIChat: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z" />
                     </svg>
                   </div>
-                  <h3 className="text-stone-900 font-serif text-xl mb-2">Welcome to your Saudi Journey</h3>
-                  <p className="text-sm font-light max-w-xs">Ask me to plan your route through AlUla or explore the souqs of Jeddah.</p>
+                  <h3 className="text-stone-900 font-serif text-xl mb-2">Ahlan wa Sahlan</h3>
+                  <p className="text-sm font-light max-w-xs">Welcome to Saudi. How can I help you plan your journey today?</p>
                 </div>
               )}
               
@@ -171,7 +175,7 @@ const AIChat: React.FC = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask your travel concierge..."
+                  placeholder="Type your question in English or 中文..."
                   className="flex-1 bg-stone-100 border-none rounded-2xl px-5 py-4 text-sm focus:ring-2 focus:ring-amber-500/50 transition-all outline-none"
                 />
                 <button
