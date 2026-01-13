@@ -18,14 +18,14 @@ const Hero: React.FC = () => {
           Awaken Your<br/><span className="text-amber-400">Senses</span>
         </h1>
         <p className="text-xl md:text-2xl text-stone-100 mb-10 font-light tracking-wide max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
-          Where ancient legends meet futuristic visions. From vast golden dunes to the deep blue Red Sea, discover a journey like no other.
+          Where ancient legends meet futuristic visions. From golden dunes to the deep Red Sea, embark on a journey like no other.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-500">
           <a href="#destinations" className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-4 rounded-md text-lg font-medium transition-all w-full sm:w-auto shadow-xl hover:shadow-amber-500/20">
             Explore Destinations
           </a>
           <a href="#ai" className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-8 py-4 rounded-md text-lg font-medium transition-all w-full sm:w-auto">
-            Ask AI Planner
+            Consult AI Concierge
           </a>
         </div>
       </div>

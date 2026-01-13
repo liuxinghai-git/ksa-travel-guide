@@ -16,6 +16,8 @@ const DestinationCard: React.FC<Props> = ({ destination, onClick }) => {
     <div 
       onClick={() => onClick(destination)}
       className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl bg-white cursor-pointer ring-1 ring-stone-200/50"
+      role="button"
+      aria-label={`View detailed guide for ${destination.name}`}
     >
       <div className="aspect-[4/5] overflow-hidden">
         <img 
@@ -37,7 +39,7 @@ const DestinationCard: React.FC<Props> = ({ destination, onClick }) => {
         </div>
         <h3 className="text-2xl font-bold mb-1 tracking-tight">{destination.name}</h3>
         <p className="text-sm text-stone-300 font-light mb-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-          {destination.englishName}
+          Theme: {destination.englishName}
         </p>
         <p className="text-sm line-clamp-2 text-stone-200 font-light opacity-90 group-hover:opacity-100">
           {destination.description}

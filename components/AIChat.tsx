@@ -29,13 +29,13 @@ const AIChat: React.FC = () => {
   };
 
   const samplePrompts = [
-    "Plan a 5-day Riyadh & AlUla itinerary",
-    "What are the best dive sites in the Red Sea?",
-    "Local cultural etiquette for first-timers",
-    "Best family-friendly activities in Riyadh",
-    "Off-the-beaten-path locations in the Asir region",
-    "Traditional Saudi dishes I must try",
-    "How to travel between cities (train vs flights)"
+    "Plan a 5-day itinerary for AlUla",
+    "Best diving spots in the Red Sea?",
+    "Etiquette guide for first-time visitors",
+    "Family-friendly activities in Riyadh",
+    "Hidden gems in the Asir region",
+    "Traditional Saudi dishes to try",
+    "Getting around: High-speed rail vs flying"
   ];
 
   return (
@@ -50,10 +50,9 @@ const AIChat: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-serif mb-4">AI Travel Planner</h2>
+              <h2 className="text-3xl font-serif mb-4">AI Travel Assistant</h2>
               <p className="text-stone-400 font-light text-sm mb-6 leading-relaxed">
-                Looking for a custom route? Or need a 3-day guide to Jeddah? 
-                Ask your personal Saudi Travel expert now.
+                Looking for a bespoke route? Or need a 3-day guide to Jeddah? Ask your dedicated Saudi travel expert now.
               </p>
               <div className="space-y-3">
                 {samplePrompts.map((prompt, i) => (
@@ -76,8 +75,8 @@ const AIChat: React.FC = () => {
           <div className="flex-1 flex flex-col bg-stone-50">
             <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4">
               {messages.length === 0 && (
-                <div className="h-full flex flex-col items-center justify-center text-stone-400 italic">
-                  <p>Welcome. I am your personal Saudi guide. Where should we go today?</p>
+                <div className="h-full flex flex-col items-center justify-center text-stone-400 italic text-center px-8">
+                  <p>Welcome. I am your personal guide to the Kingdom. Where shall we go today?</p>
                 </div>
               )}
               {messages.map((msg, idx) => (
@@ -109,7 +108,7 @@ const AIChat: React.FC = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Plan your dream Saudi adventure..."
+                  placeholder="Plan your dream Saudi trip..."
                   className="flex-1 bg-stone-100 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
                 />
                 <button

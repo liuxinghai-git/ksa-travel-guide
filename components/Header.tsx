@@ -14,7 +14,7 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Destinations', id: 'destinations' },
-    { name: 'Travel Info', id: 'tips' },
+    { name: 'Travel Guides', id: 'tips' },
     { name: 'AI Planner', id: 'ai' },
     { name: 'Contact', id: 'contact' }
   ];
@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           ))}
         </nav>
         <button className="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-amber-500/30">
-          Plan Your Trip
+          Plan Now
         </button>
       </div>
     </header>
