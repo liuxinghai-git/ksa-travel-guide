@@ -10,8 +10,8 @@ export const destinations: Destination[] = [
     description: 'Home to the Kingdom\'s first UNESCO World Heritage site, Hegra, with over 200,000 years of history.',
     longDescription: `AlUla is a mesmerizing region in northwestern Saudi Arabia, offering a unique journey through time. As home to the UNESCO World Heritage site of Hegra, it stands as a testament to the Nabataean civilization's ingenuity.\n\nIn AlUla, you can wander through dramatic sandstone canyons, marvel at the monolithic Elephant Rock, and witness the architectural marvel of Maraya—the world's largest mirrored building. Recent luxury developments have transformed AlUla into a premier global destination, blending raw natural beauty with world-class hospitality. It is a place for stargazing, archaeological wonder, and profound serenity.`,
     recommendedDays: '3-4 Days',
-    image: 'https://images.unsplash.com/photo-1621370835496-e17f017830f6?q=80&w=2070&auto=format&fit=crop',
-    mapImage: 'https://images.unsplash.com/photo-1506466010722-395ee2bef877?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000&auto=format&fit=crop',
+    mapImage: 'https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000&auto=format&fit=crop',
     tags: ['UNESCO Heritage', 'Archaeology', 'Luxury Retreat'],
     activities: [
       {
@@ -39,7 +39,7 @@ export const destinations: Destination[] = [
     description: 'The capital city where centuries of history meet a bold, futuristic skyline.',
     longDescription: `Riyadh is the political and commercial hub of Saudi Arabia. It is a city of rapid transformation, perfectly embodying the "Saudi Vision 2030."\n\nYou can start your journey in Diriyah, the birthplace of the Saudi state, before exploring the modern luxury of the Kingdom Centre. Riyadh is also a culinary powerhouse, hosting world-renowned Michelin-starred restaurants and the sprawling Boulevard City. Whether you're seeking traditional Najdi architecture or high-end shopping, Riyadh offers a vibrant, cosmopolitan experience.`,
     recommendedDays: '2-3 Days',
-    image: 'https://images.unsplash.com/photo-1548711524-749386763ef8?q=80&w=2074&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop',
     mapImage: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2000&auto=format&fit=crop',
     tags: ['Metropolis', 'Shopping', 'Modern Landmarks'],
     activities: [
@@ -68,8 +68,8 @@ export const destinations: Destination[] = [
     description: 'A vibrant port city known for its historic coral-stone architecture and world-class diving.',
     longDescription: `Jeddah, the "Bride of the Red Sea," has always been a crossroads for pilgrims and traders. The historic district of Al Balad, a UNESCO site, features unique coral-stone houses with intricate wooden latticed windows known as Rawashin.\n\nThe city’s Corniche stretches for miles, offering seaside recreation and the world’s tallest fountain, King Fahd's Fountain. For water enthusiasts, Jeddah is the ultimate destination for Red Sea diving, with pristine reefs and a rich diversity of marine life just offshore.`,
     recommendedDays: '3 Days',
-    image: 'https://images.unsplash.com/photo-1551041777-ed9383921008?q=80&w=2070&auto=format&fit=crop',
-    mapImage: 'https://images.unsplash.com/photo-1565039083538-349f24305984?q=80&w=2000&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1589486071850-932d56778912?q=80&w=2000&auto=format&fit=crop',
+    mapImage: 'https://images.unsplash.com/photo-1589486071850-932d56778912?q=80&w=2000&auto=format&fit=crop',
     tags: ['Red Sea', 'Old Town', 'Scuba Diving'],
     activities: [
       {
