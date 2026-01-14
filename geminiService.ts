@@ -21,7 +21,7 @@ export const streamTravelAdvice = async (
   onChunk: (text: string) => void
 ) => {
   // Always obtain the API key from process.env.API_KEY
-  const apiKey = process.env.API_KEY；//process.env.API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY；//process.env.API_KEY;
   
   if (!apiKey) {
     console.error("API Key is missing in the current environment.");
