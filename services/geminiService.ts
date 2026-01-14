@@ -2,7 +2,7 @@
 import { GoogleGenAI } from "@google/genai";
 
 export const getTravelAdvice = async (userPrompt: string, history: {role: 'user' | 'model', text: string}[]) => {
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyA9NNWuMgRX-NeN8ZeKzYJVlGnrZL8opUA"});//process.env.API_KEY
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY});//process.env.API_KEY
   
   const systemInstruction = `
     You are a world-class travel expert and itinerary planner specializing in Saudi Arabia.
