@@ -2,7 +2,7 @@
 import React from 'react';
 import { Destination } from '../types';
 // 👇 1. 引入刚才保存的地图组件
-import AlUlaMap from '../components/AlUlaMap'; 
+//import AlUlaMap from '../components/AlUlaMap'; 
 
 export const destinations: Destination[] = [
   {
@@ -16,7 +16,7 @@ export const destinations: Destination[] = [
     mapImage: 'https://images.unsplash.com/photo-1589309736404-2e142a2acdf0?q=80&w=2000&auto=format&fit=crop',
     tags: ['World Heritage', 'Archaeology', 'Luxury Retreat'],
      // 👇 2. 在这里把组件赋值给 AlUla
-    customComponent: <AlUlaMap />, 
+    //customComponent: <AlUlaMap />, 
     activities: [
       {
         title: "Explore Hegra",
