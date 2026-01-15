@@ -2,7 +2,7 @@
 import React from 'react';
 import { Destination } from '../types';
 // 👇 1. 引入刚才保存的地图组件
-import AlUlaMap from '../src/components/AlUlaMap'; 
+import AlUlaMap from '../components/AlUlaMap'; 
 
 export const destinations: Destination[] = [
   {
