@@ -292,6 +292,15 @@ const DestinationDetail: React.FC<Props> = ({ destination, onBack }) => {
             <div className="bg-white p-10 rounded-[40px] shadow-2xl border border-stone-100 sticky top-24">
               <h3 className="text-2xl font-bold mb-8 text-stone-900">Travel Highlights</h3>
               <div className="space-y-10">
+                {/* 👇👇👇 插入这段代码 👇👇👇 */}
+                {/* 如果当前目的地有自定义组件（比如 AlUlaMap），就在这里显示它 */}
+                {destination.customComponent && (
+                  <div className="w-full my-12 animate-fade-in-up">
+                    {destination.customComponent}
+                  </div>
+                )}
+                {/* 👆👆👆 插入这段代码 👆👆👆 */}
+
                 {destination.activities.map((activity, idx) => (
                   <div key={idx} className="flex gap-6 group/item">
                     <div className="flex-shrink-0 w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 transition-all duration-500 group-hover/item:bg-amber-500 group-hover/item:text-white group-hover/item:scale-110 group-hover/item:rotate-6">
