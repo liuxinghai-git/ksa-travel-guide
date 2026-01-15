@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { ReactNode } from 'react'; // 👈 必须引入 ReactNode
 
 export interface POI {
   id: string;
@@ -29,6 +30,8 @@ export interface Destination {
     icon: React.ReactNode;
   }[];
   pois: POI[];
+  // 👇 确保加上这一行，允许每个目的地有一个自定义组件
+  customComponent?: ReactNode; 
 }
 
 export interface PracticalTip {
